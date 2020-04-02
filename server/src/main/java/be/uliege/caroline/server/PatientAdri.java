@@ -1,4 +1,4 @@
-package be.uliege.caroline.server;
+package be.uliege.caroline;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
