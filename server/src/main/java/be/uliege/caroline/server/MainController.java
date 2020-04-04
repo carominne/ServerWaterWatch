@@ -91,6 +91,9 @@ public class MainController {
   patient.get().setWeight(patientDetails.getWeight());
   patient.get().setGender(patientDetails.getGender());
   patient.get().setRoom(patientDetails.getRoom());
+  patient.get().setHeartbeat(patientDetails.getHeartbeat());
+  patient.get().setSpo2(patientDetails.getSpo2());
+
   
   Patient updatePatient = (Patient) patientRepository.save(patient.get());
   

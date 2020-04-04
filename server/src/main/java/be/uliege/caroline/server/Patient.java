@@ -22,6 +22,10 @@ public class Patient {
   
   private Integer dehydrationState;
   
+  private Integer heartbeat;
+  
+  private Integer spo2; 
+  
   private String gender;
   
   private Integer age;
@@ -85,8 +89,25 @@ public class Patient {
 	    return dehydrationState;
   }
 	
+  
   public void setDehydrationState(Integer dehydrationState) {
 	  this.dehydrationState = dehydrationState;
+  }
+  
+  public Integer getHeartbeat() {
+      return heartbeat;
+  }
+
+  public void setHeartbeat(Integer heartbeat) {
+      this.heartbeat= heartbeat;
+  }
+
+  public Integer getSpo2() {
+      return spo2;
+  }
+
+  public void setSpo2(Integer spo2) {
+      this.spo2 = spo2;
   }
   
   public Integer getAge() {
