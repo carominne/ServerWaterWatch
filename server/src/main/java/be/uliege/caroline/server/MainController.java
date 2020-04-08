@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,14 +26,15 @@ public class MainController {
 
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public void addNewUser (@RequestBody Patient u) {
+  public Patient addNewUser (@RequestBody Patient u) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     log.info("Add user request " + u.getName());
 
     patientRepository.save(u);
-    return;
+
+    return u;
     
   }
 
