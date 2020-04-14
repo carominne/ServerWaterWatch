@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,14 +26,15 @@ public class MainController {
 
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public void addNewUser (@RequestBody Patient u) {
+  public Patient addNewUser (@RequestBody Patient u) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     log.info("Add user request " + u.getName());
+    log.info("Blabla " + patientRepository.count());
 
     patientRepository.save(u);
-    return;
+    return u;
     
   }
 
@@ -81,7 +83,6 @@ public class MainController {
   
   java.util.Optional<Patient> patient = patientRepository.findById(patient_id);
   
-  patient.get().setDehydrationState(patientDetails.getDehydrationState());
   patient.get().setName(patientDetails.getName());
   patient.get().setForename(patientDetails.getForename());
   patient.get().setBirthday(patientDetails.getBirthday());
@@ -93,8 +94,6 @@ public class MainController {
   patient.get().setWeight(patientDetails.getWeight());
   patient.get().setGender(patientDetails.getGender());
   patient.get().setRoom(patientDetails.getRoom());
-  patient.get().setHeartbeat(patientDetails.getHeartbeat());
-  patient.get().setSpo2(patientDetails.getSpo2());
 
   
   Patient updatePatient = (Patient) patientRepository.save(patient.get());

@@ -14,7 +14,7 @@ public class Patient {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Integer id;
 
-  private Integer roomNumber;
+  private Integer room;
 
   private String name;
   
@@ -61,11 +61,11 @@ public class Patient {
   }
   
   public Integer getRoom() {
-	    return roomNumber;
+	    return room;
   }
 
-  public void setRoom(Integer roomNumber) {
-    this.roomNumber = roomNumber;
+  public void setRoom(Integer room) {
+    this.room = room;
   }
   
   public String getForename() {
