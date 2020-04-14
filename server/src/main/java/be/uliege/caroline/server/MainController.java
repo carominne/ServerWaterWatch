@@ -64,6 +64,8 @@ public class MainController {
   java.util.Optional<Patient> patient = patientRepository.findById(patient_id);
   
   patient.get().setDehydrationState(patientDetails.getDehydrationState());
+  patient.get().setHeartbeat(patientDetails.getHeartbeat());
+  patient.get().setSpo2(patientDetails.getSpo2());
   
   Patient updatePatient = (Patient) patientRepository.save(patient.get());
   
