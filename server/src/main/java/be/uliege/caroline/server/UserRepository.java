@@ -12,4 +12,5 @@ import be.uliege.caroline.server.Users;
 
 public interface UserRepository extends CrudRepository<Users, Integer> {
 
+	
 }
